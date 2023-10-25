@@ -1,0 +1,34 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: PLTC
+  description: API for a contact manager for the POOSD course.
+
+servers:
+  - url: http://api.mabadmlo.xyz/v1
+
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+
+paths:
+  /login:
+  /register:
+  /user/{username}:
+  /user/{username}/cards:
+  /user/{username}/cards/{cardid}:
+  /user/{username}/cards/{cardid}/sell:
+  /user/{username}/currency:
+  /user/{username}/currency/add:
+  /user/{username}/packs:
+  /user/{username}/packs/open:
+  /user/{username}/social:
+  /user/{username}/social/sendtrade:
+  /user/{username}/social/trades:
+  /user/{username}/social/confirmtrade:
+  /store:
+  /store/packs:
+  /store/packs/buy:

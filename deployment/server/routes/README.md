@@ -1,0 +1,1 @@
+Contains the routes for the API. See index.yaml for the OpenApi 3.0 description.

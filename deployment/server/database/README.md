@@ -1,0 +1,1 @@
+Contains the connection for the MongoDB database.
