@@ -1,15 +1,9 @@
 require('dotenv').config({ path: require('find-config')('.env') });
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient } = require('mongodb');
 const uri = process.env.ATLAS_URI;
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+const client = new MongoClient("mongodb+srv://poosd-pltc:rqDkd6WL6iYBns25@poosd-pltc.hz2nrdh.mongodb.net/?retryWrites=true&w=majority");
 
 async function run() {
   try {
