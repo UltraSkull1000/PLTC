@@ -26,6 +26,7 @@ paths:
   /user/{username}/packs:
   /user/{username}/packs/open:
   /user/{username}/social:
+  /user/{username}/social/getrecommended:
   /user/{username}/social/sendtrade:
   /user/{username}/social/trades:
   /user/{username}/social/confirmtrade:
