@@ -1,0 +1,21 @@
+
+
+module.exports = {
+    getRandomNum : function(max){
+        return Math.floor(Math.random * max)
+    },
+
+    generateCardPack : function(type){
+        switch(type){
+            case 0: // basic
+                const cards = []
+                cards.push(getCard())
+                break;
+
+        }
+    },
+
+    getRandomCard : function(){
+        
+    }
+}

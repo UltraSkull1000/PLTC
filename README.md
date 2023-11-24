@@ -6,13 +6,13 @@ This MERN stack web application was created for the COP4331C course for Fall 202
 
 Start API server:
 ```
-cd mern/server
+cd deployment/server
 npm install
 npm start
 ```
 Start Web server
 ```
-cd mern/client
+cd deployment/client
 npm install
 npm start
 ```

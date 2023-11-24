@@ -43,8 +43,14 @@ app.post('/register', async (req, res) => {
     else res.status(400).send("User already exists!")
 })
 
+app.post('/validatecards', async (req, res) => {
+    const dbc = require("./database/dbconnection");
+    await dbc.validateCards();
+    res.send("validated.")
+})
+
 const userRouter = require("./routes/user")
-app.use("/users", userRouter)
+app.use("/user", userRouter)
 
 const storeRouter = require("./routes/store")
 app.use("/store", storeRouter)
