@@ -35,7 +35,8 @@ app.post('/login', async (req, res) =>{
         if(result){
             var key = require("./source/generateKey").generateKey(user._id)
             res.status(200).send(key);
-            res.redirect('/users/${data.username}');
+            user.sessionKey = key;
+            res.redirect('/users/${key}');
         }
         else{
             res.status(401).send("Invalid credentials.");
@@ -109,6 +110,7 @@ app.put("/:sessionKey/quicksell", (req, res) => {
             user.collection.splice(user.collection.indexOf(card), 1);
         }
     }
+    res.redirect('/users/${req.params.sessionKey}');
 });
 
 app.post('/validatecards', async (req, res) => {
