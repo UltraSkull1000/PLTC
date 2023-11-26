@@ -67,8 +67,7 @@ app.post('/register', async (req, res) => {
             holds: [],
             dupes: [],
             lastLogin: Date.now(),
-            sessionKey: "",
-            packTime: Date.now()
+            sessionKey: ""
         });
     }
     res.status(200).send("Successfully Posted User!");
