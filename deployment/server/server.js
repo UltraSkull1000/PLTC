@@ -10,7 +10,9 @@ const Friend = require('./models/friendRequest');
 
 //db connection
 const dbURL = process.env.ATLAS_URI;
-mongoose.connect(dbURL);
+mongoose.connect(dbURL)
+    .then((result) => app.listen(3000))
+    .catch((err) => console.log(err));
 
 console.log("MaBaDmLo.xyz Premier League API Startup...")
 
@@ -53,7 +55,6 @@ app.post('/register', async (req, res) => {
         res.status(400).send("User already exists!");
     }
     else {
-        res.status(200).send("Successfully Posted User!");
         const newUser = await User.create({
             username: data.username,
             password: saltedPassword,
@@ -67,10 +68,11 @@ app.post('/register', async (req, res) => {
             lastLogin: Date.now()
         });
     }
+    res.status(200).send("Successfully Posted User!");
 })
 
 app.post('/validatecards', async (req, res) => {
-    //const dbc = require("./database/dbconnection");
+    const dbc = require("./database/dbconnection");
     await dbc.validateCards();
     res.send("validated.")
 })
@@ -80,6 +82,4 @@ app.use("/user", userRouter)
 
 const storeRouter = require("./routes/store")
 app.use("/store", storeRouter)
-
-app.listen(3000)
 
