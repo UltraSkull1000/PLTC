@@ -3,6 +3,9 @@ const bodyParser = require("body-parser")
 const app = express()
 
 const User = require('./models/users');
+const Listing = require('./models/playerListing');
+const Trade = require('./models/trade');
+const Friend = require('./models/friendRequest');
 
 console.log("MaBaDmLo.xyz Premier League API Startup...")
 
