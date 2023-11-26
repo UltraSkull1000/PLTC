@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.post('/login', async (req, res) =>{
     const data = req.body
-    const dbc = require("./database/dbconnection")
+    //const dbc = require("./database/dbconnection")
     const bcrypt = require("bcrypt")
     var user = await User.findOne({ username: data.username });
     const result = await bcrypt.compare(data.password, user.passwordHash, (err, result) => 
@@ -44,7 +44,7 @@ app.post('/login', async (req, res) =>{
 app.post('/register', async (req, res) => {
     console.log("Registration request recieved")
     const data = req.body
-    const dbc = require("./database/dbconnection")
+    //const dbc = require("./database/dbconnection")
     var salter = require("./source/salter")
     var saltedPassword = await salter.HashAndSalt(data.password)
     const username = await User.findOne({ username: data.username });
@@ -70,7 +70,7 @@ app.post('/register', async (req, res) => {
 })
 
 app.post('/validatecards', async (req, res) => {
-    const dbc = require("./database/dbconnection");
+    //const dbc = require("./database/dbconnection");
     await dbc.validateCards();
     res.send("validated.")
 })
