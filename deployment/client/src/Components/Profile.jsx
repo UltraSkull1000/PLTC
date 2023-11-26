@@ -1,6 +1,6 @@
 import React from "react";
 import Gallery from "./Gallery";
-
+import ProgressBar from "./ProgressBar";
 function Profile() {
   const user = {
     name: "John Doe",
@@ -11,33 +11,27 @@ function Profile() {
   };
   return (
     <div className="items-center bg-white rounded-lg shadow-md p-4">
-      <div className="text-center">
+      <div className="text-left mx-10">
         <img
           src={user.imageUrl}
           alt="User Profile"
-          className="mx-auto h-20 w-20 rounded-full border-4 border-purple-800 mb-4"
+          className="h-20 w-20 rounded-full border-4 border-purple-800 mb-4"
         />
         <h2 className="text-2xl font-semibold">{user.name}</h2>
         <p className="text-gray-600">{user.desc}</p>
       </div>
-      <div className="mt-8 mx-10 text-center">
+      <div className="mt-8 mx-10 text-left">
         <h3 className="text-xl font-semibold">About Me</h3>
         <p className="text-gray-700 mt-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
           tristique justo id mi sollicitudin, sit amet eleifend libero interdum.
         </p>
         <h3 className="mt-3 text-xl font-semibold">Collection Progress</h3>
-        <p className="text-gray-700 mt-2">
-          Team1 - 5% | Team2 - 10% | Team3 - 10%
-        </p>
-        <h3 className="mt-3 text-xl font-semibold">{user.name}'s Collection</h3>
-
-        <div className="p-1 rounded">
-          <Gallery />
-        </div>
+        <ProgressBar progress="10" />
+        <h3 className="mt-5 text-xl font-semibold">{user.name}'s Collection</h3>
+        <Gallery />
       </div>
     </div>
   );
 }
-
 export default Profile;

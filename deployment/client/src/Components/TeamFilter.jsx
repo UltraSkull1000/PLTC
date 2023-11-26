@@ -25,9 +25,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function TeamFilter() {
+const TeamFilter = ({ selectedTeam }) => {
   const [selected, setSelected] = useState(teams[0]);
-
   return (
     <Listbox value={selected} onChange={setSelected}>
       {({ open }) => (
@@ -108,4 +107,5 @@ export default function TeamFilter() {
       )}
     </Listbox>
   );
-}
+};
+export default TeamFilter;

@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Collection/>}/>
         <Route path="/collection" element={<Collection />} />
-        <Route path="/auth" element={<AuthModal/>}/>
+        <Route path="/auth" element={<><Collection /><AuthModal/></>}/>
         <Route path="/profile" element={<Profile/>}/>
         </Routes>
     </Router>

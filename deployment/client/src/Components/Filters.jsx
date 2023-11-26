@@ -1,7 +1,7 @@
 import TeamFilter from "./TeamFilter";
 import RarityFilter from "./RarityFilter";
 import Input from "./Input";
-export default function Filters() {
+const Filters = (props) => {
   return (
     <>
       <div className="inline-flex w-full md: mx-4 lg:mx-8">
@@ -11,4 +11,5 @@ export default function Filters() {
       </div>
     </>
   );
-}
+};
+export default Filters;

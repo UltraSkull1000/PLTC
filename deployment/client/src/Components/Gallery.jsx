@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const cards = [
   {
     imageSrc: require("./Img/card.png"),
@@ -42,87 +41,119 @@ const cards = [
     team: "Team1",
   },
 ];
-
 export default function Gallery() {
   const [rarityFilter, setRarityFilter] = useState("All");
+  const [teamFilter, setTeamFilter] = useState("All");
+  const [activeTeamFilter, setActiveTeamFilter] = useState("All");
+  const [activeRarityFilter, setActiveRarityFilter] = useState("All");
+
   const rfilteredCards =
     rarityFilter === "All"
       ? cards
       : cards.filter((card) => card.rarity === rarityFilter);
-
-  const [teamFilter, setTeamFilter] = useState("All");
   const tfilteredCards =
     teamFilter === "All"
       ? rfilteredCards
       : rfilteredCards.filter((card) => card.team === teamFilter);
 
+  const handleTeamFilter = (team) => {
+    setTeamFilter(team);
+    setActiveTeamFilter(team);
+  };
+  const handleRarityFilter = (rarity) => {
+    setRarityFilter(rarity);
+    setActiveRarityFilter(rarity);
+  };
   return (
     <>
-      <div className="bg-gray-100 text-white text-center">
+      <div className="text-white text-center text-sm lg:text-left">
         <button
-          className="w-1/12 mx-2 mt-2 bg-blue-700 rounded-md px-2 py-1 focus:bg-red-900"
-          onClick={() => setTeamFilter("All")}
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeTeamFilter === "All" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleTeamFilter("All")}
         >
           All
         </button>
         <button
-          className="w-1/12 mx-2 mt-2 bg-blue-700 rounded-md px-2 py-1"
-          onClick={() => setTeamFilter("Team1")}
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeTeamFilter === "Team1" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleTeamFilter("Team1")}
         >
-          Team1
+          1
         </button>
         <button
-          className="w-1/12 mx-2 mt-2 bg-blue-700 rounded-md px-2 py-1"
-          onClick={() => setTeamFilter("Team2")}
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeTeamFilter === "Team2" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleTeamFilter("Team2")}
         >
-          Team2
+          2
         </button>
         <button
-          className="w-1/12 mx-2 mt-2 bg-blue-700 rounded-md px-2 py-1"
-          onClick={() => setTeamFilter("Team3")}
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeTeamFilter === "Team3" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleTeamFilter("Team3")}
         >
-          Team3
+          3
         </button>
         <button
-          className="w-1/12 mx-2 mt-2 bg-blue-700 rounded-md px-2 py-1"
-          onClick={() => setTeamFilter("Team4")}
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeTeamFilter === "Team4" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleTeamFilter("Team4")}
         >
-          Team4
-        </button>
-        <button
-          className="w-1/12 mx-2 mt-2 bg-purple-900 rounded-md px-2 py-1"
-          onClick={() => setRarityFilter("All")}
-        >
-          All
-        </button>
-        <button
-          className="w-1/12 mx-2 mt-2 bg-purple-900 rounded-md px-2 py-1"
-          onClick={() => setRarityFilter("World Class")}
-        >
-          World
-        </button>
-        <button
-          className="w-1/12 mx-2 mt-2 bg-purple-900 rounded-md px-2 py-1"
-          onClick={() => setRarityFilter("Pro")}
-        >
-          Pro
-        </button>
-        <button
-          className="w-1/12 mx-2 mt-2 bg-purple-900 rounded-md px-2 py-1"
-          onClick={() => setRarityFilter("Common")}
-        >
-          Common
-        </button>
-        <button
-          className="w-1/12 mx-2 mt-2 bg-purple-900 rounded-md px-2 py-1"
-          onClick={() => setRarityFilter("Rare")}
-        >
-          Rare
+          4
         </button>
       </div>
-      <div className=" bg-gray-100 rounded:md py-2">
-        {teamFilter}
-        {rarityFilter}
+      <div className="text-white text-center text-sm lg:text-left">
+        <button
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeRarityFilter === "All" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleRarityFilter("All")}
+        >
+          All
+        </button>
+        <button
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeRarityFilter === "World Class"
+              ? "bg-purple-600"
+              : "bg-purple-900"
+          }`}
+          onClick={() => handleRarityFilter("World Class")}
+        >
+          W
+        </button>
+        <button
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeRarityFilter === "Pro" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleRarityFilter("Pro")}
+        >
+          P
+        </button>
+        <button
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeRarityFilter === "Rare" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleRarityFilter("Rare")}
+        >
+          R
+        </button>
+        <button
+          className={`w-1/12 mx-2 mt-2 rounded-md px-2 py-1 ${
+            activeRarityFilter === "Common" ? "bg-purple-600" : "bg-purple-900"
+          }`}
+          onClick={() => handleRarityFilter("Common")}
+        >
+          C
+        </button>
+      </div>
+
+      <div className="py-2">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-3 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 xl:gap-x-5">
             {tfilteredCards.map((card) => (
