@@ -1,9 +1,12 @@
 const express = require("express")
 const router = express.Router()
+const User = require("../models/users");
 
-router.get("/:username", async (req, res) => {
+router.get("/:sessionkey", async (req, res) => {
+    var user = await User.findOne({ sessionkey: req.params.sessionkey});
+    var collection = user.collection;
     res.statusCode(200)
-    res.render('../client/src/components/Collection.jsx');
+    res.render('../client/src/components/Collection.jsx', collection);
 })
 
 router.get("/:username/cards", async (req, res) => {
@@ -58,6 +61,12 @@ router.put("/:username/currency/add", async (req, res) => {
         res.sendStatus(500);
         throw error;
     }
+})
+
+router.post("/:sessionKey/logout", (req, res) => {
+    var user = User.findOne({ sessionKey: req.params.sessionKey });
+    user.sessionKey = "";
+    res.redirect("/");
 })
 
 module.exports = router

@@ -66,7 +66,8 @@ app.post('/register', async (req, res) => {
             friendList: [],
             holds: [],
             dupes: [],
-            lastLogin: Date.now()
+            lastLogin: Date.now(),
+            sessionKey: ""
         });
     }
     res.status(200).send("Successfully Posted User!");
