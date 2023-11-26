@@ -1,11 +1,16 @@
 const express = require("express")
 const bodyParser = require("body-parser")
+const mongoose = require('mongoose');
 const app = express()
 
 const User = require('./models/users');
 const Listing = require('./models/playerListing');
 const Trade = require('./models/trade');
 const Friend = require('./models/friendRequest');
+
+//db connection
+const dbURL = process.env.ATLAS_URI;
+mongoose.connect(dbURL);
 
 console.log("MaBaDmLo.xyz Premier League API Startup...")
 
@@ -15,14 +20,14 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', (req, res) => {
     console.log("Client asserted a get request to the base of the API.")
-    res.status(200).send("Welcome to the MaBaDmLo.xyz Premier League API!")
+    res.status(200).render('../client/src/components/AuthForm.jsx');
 })
 
 app.post('/login', async (req, res) =>{
     const data = req.body
-    const dbc = require("./database/dbconnection")
+    //const dbc = require("./database/dbconnection")
     const bcrypt = require("bcrypt")
-    var user = await dbc.getUser(data.username);
+    var user = await User.findOne({ username: data.username });
     const result = await bcrypt.compare(data.password, user.passwordHash, (err, result) => 
     {
         if(result){
@@ -39,7 +44,7 @@ app.post('/login', async (req, res) =>{
 app.post('/register', async (req, res) => {
     console.log("Registration request recieved")
     const data = req.body
-    const dbc = require("./database/dbconnection")
+    //const dbc = require("./database/dbconnection")
     var salter = require("./source/salter")
     var saltedPassword = await salter.HashAndSalt(data.password)
     const username = await User.findOne({ username: data.username });
@@ -58,13 +63,14 @@ app.post('/register', async (req, res) => {
             collection: [],
             friendList: [],
             holds: [],
-            dupes: []
+            dupes: [],
+            lastLogin: Date.now()
         });
     }
 })
 
 app.post('/validatecards', async (req, res) => {
-    const dbc = require("./database/dbconnection");
+    //const dbc = require("./database/dbconnection");
     await dbc.validateCards();
     res.send("validated.")
 })
