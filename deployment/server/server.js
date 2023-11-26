@@ -36,7 +36,7 @@ app.post('/login', async (req, res) =>{
             var key = require("./source/generateKey").generateKey(user._id)
             res.status(200).send(key);
             user.sessionKey = key;
-            user.money = user.money = (Date.now() - user.lastLogin) / 10000;
+            user.money = user.money + ((Date.now() - user.lastLogin) / 10000);
             res.redirect('/users/${key}');
         }
         else{
