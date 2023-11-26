@@ -10,7 +10,9 @@ const Friend = require('./models/friendRequest');
 
 //db connection
 const dbURL = process.env.ATLAS_URI;
-mongoose.connect(dbURL);
+mongoose.connect(dbURL)
+    .then((result) => app.listen(3000))
+    .catch((err) => console.log(err));
 
 console.log("MaBaDmLo.xyz Premier League API Startup...")
 
@@ -80,6 +82,4 @@ app.use("/user", userRouter)
 
 const storeRouter = require("./routes/store")
 app.use("/store", storeRouter)
-
-app.listen(3000)
 
