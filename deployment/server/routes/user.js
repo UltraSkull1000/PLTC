@@ -63,4 +63,10 @@ router.put("/:username/currency/add", async (req, res) => {
     }
 })
 
+router.post("/:sessionKey/logout", (req, res) => {
+    var user = User.findOne({ sessionKey: req.params.sessionKey });
+    user.sessionKey = "";
+    res.redirect("/");
+})
+
 module.exports = router
