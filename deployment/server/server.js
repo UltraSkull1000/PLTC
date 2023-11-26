@@ -2,6 +2,8 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const app = express()
 
+const User = require('./models/users');
+
 console.log("MaBaDmLo.xyz Premier League API Startup...")
 
 app.use(bodyParser.urlencoded({
@@ -37,10 +39,25 @@ app.post('/register', async (req, res) => {
     const dbc = require("./database/dbconnection")
     var salter = require("./source/salter")
     var saltedPassword = await salter.HashAndSalt(data.password)
-    if(await dbc.postUser(data.username, saltedPassword)){
-        res.status(200).send("Successfully Posted User!")
+    const username = await User.findOne({ username: data.username });
+    const email = await User.findOne({ email: data.email });
+    if(username || email){
+        res.status(400).send("User already exists!");
     }
-    else res.status(400).send("User already exists!")
+    else {
+        res.status(200).send("Successfully Posted User!");
+        const newUser = await User.create({
+            username: data.username,
+            password: saltedPassword,
+            email: data.email,
+            verified: false,
+            money: 5000,
+            collection: [],
+            friendList: [],
+            holds: [],
+            dupes: []
+        });
+    }
 })
 
 app.post('/validatecards', async (req, res) => {
