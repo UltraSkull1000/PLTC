@@ -1,22 +1,9 @@
 const express = require("express")
 const router = express.Router()
 
-router.get("/", (req, res) => {
-    res.statusCode(200)
-    res.send("Base of the User Router. Please select a valid endpoint.")
-})
-
 router.get("/:username", async (req, res) => {
-    var dbc = require("../database/dbconnection")
-    var user = await dbc.getUser(req.params.username)
-    try{
-        var output = { username: user.username, lastLogin: user.lastLogin}
-        res.json(output);
-    }
-    catch (error) {
-        res.sendStatus(500);
-        throw error;
-    }
+    res.statusCode(200)
+    res.render('../client/src/components/Collection.jsx');
 })
 
 router.get("/:username/cards", async (req, res) => {
