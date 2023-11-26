@@ -30,6 +30,10 @@ const userSchema = new Schema({
     friendList: {
         type: [String],
         required: true
+    },
+    holds: {
+        type: [String],
+        required: true
     }
 });
 
