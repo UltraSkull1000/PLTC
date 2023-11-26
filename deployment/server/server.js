@@ -22,7 +22,7 @@ app.post('/login', async (req, res) =>{
     const data = req.body
     const dbc = require("./database/dbconnection")
     const bcrypt = require("bcrypt")
-    var user = await dbc.getUser(data.username);
+    var user = await User.findOne({ username: data.username });
     const result = await bcrypt.compare(data.password, user.passwordHash, (err, result) => 
     {
         if(result){
@@ -58,7 +58,8 @@ app.post('/register', async (req, res) => {
             collection: [],
             friendList: [],
             holds: [],
-            dupes: []
+            dupes: [],
+            lastLogin: Date.now()
         });
     }
 })
