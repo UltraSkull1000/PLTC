@@ -1,9 +1,12 @@
 const express = require("express")
 const router = express.Router()
+const User = require("../models/users");
 
-router.get("/:username", async (req, res) => {
+router.get("/:sessionkey", async (req, res) => {
+    var user = await User.findOne({ sessionkey: req.params.sessionkey});
+    var collection = user.collection;
     res.statusCode(200)
-    res.render('../client/src/components/Collection.jsx');
+    res.render('../client/src/components/Collection.jsx', collection);
 })
 
 router.get("/:username/cards", async (req, res) => {
