@@ -9,7 +9,7 @@ router.get("/:sessionKey", (req, res) => {
 })
 
 router.get("/:sessionKey/pack", (req, res) => {
-    
+    res.render();
 });
 
 router.post("/:sessionKey/pack", (req, res) => {
@@ -53,6 +53,14 @@ router.post("/:sessionKey/pack", (req, res) => {
     {
         res.status(400).json({ error: "User does not have sufficient funds" });
     }
+    res.render();
 });
+
+function freePack(lastLogin){
+    var oneDay = 1 * 24 * 60 * 60 * 1000;
+    if(lastLogin - Date.now() >= oneDay)
+        return true;
+    return false;
+}
 
 module.exports = router
