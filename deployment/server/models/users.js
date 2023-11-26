@@ -42,6 +42,10 @@ const userSchema = new Schema({
     lastLogin: {
         type: Date,
         required: true
+    },
+    sessionkey: {
+        type: String,
+        required: true
     }
 });
 
