@@ -9,6 +9,7 @@ import Dashboard from './Components/Dashboard';
 import AuthModal from './Components/AuthModal';
 import Collection from './Components/Collection';
 import Profile from './Components/Profile';
+
 function App() {
   return (
     <>
@@ -20,7 +21,7 @@ function App() {
         <Route path="/collection" element={<Collection />} />
         <Route path="/auth" element={<><Collection /><AuthModal/></>}/>
         <Route path="/profile" element={<Profile/>}/>
-        </Routes>
+      </Routes>
     </Router>
     </div>
     </>
