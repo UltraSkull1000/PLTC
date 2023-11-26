@@ -46,10 +46,6 @@ const userSchema = new Schema({
     sessionkey: {
         type: String,
         required: true
-    },
-    packTime: {
-        type: Date,
-        required: true
     }
 });
 
