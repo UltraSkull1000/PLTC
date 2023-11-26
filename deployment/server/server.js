@@ -55,7 +55,6 @@ app.post('/register', async (req, res) => {
         res.status(400).send("User already exists!");
     }
     else {
-        res.status(200).send("Successfully Posted User!");
         const newUser = await User.create({
             username: data.username,
             password: saltedPassword,
@@ -69,6 +68,7 @@ app.post('/register', async (req, res) => {
             lastLogin: Date.now()
         });
     }
+    res.status(200).send("Successfully Posted User!");
 })
 
 app.post('/validatecards', async (req, res) => {
