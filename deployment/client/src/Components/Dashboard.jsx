@@ -17,8 +17,7 @@ const navigation = [
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/profile" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "/auth" },
+  { name: "Login", href: "/auth" },
 ];
 
 function classNames(...classes) {
@@ -157,23 +156,6 @@ export default function Dashboard() {
                   ))}
                 </div>
                 <div className="border-t border-gray-300 pb-3 pt-4">
-                  <div className="flex items-center px-5">
-                    <div className="flex-shrink-0">
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={user.imageUrl}
-                        alt=""
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">
-                        {user.name}
-                      </div>
-                      <div className="text-sm font-medium leading-none text-gray-400">
-                        {user.email}
-                      </div>
-                    </div>
-                  </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (
                       <Disclosure.Button

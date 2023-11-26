@@ -6,9 +6,10 @@ import {
   Route,
 } from "react-router-dom";
 import Dashboard from './Components/Dashboard';
-import AuthModal from './Components/AuthModal';
 import Collection from './Components/Collection';
 import Profile from './Components/Profile';
+import AuthForm from './Components/AuthForm';
+import RegForm from './Components/RegForm';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Collection/>}/>
         <Route path="/collection" element={<Collection />} />
-        <Route path="/auth" element={<><Collection /><AuthModal/></>}/>
+        <Route path="/auth" element={<AuthForm/>}/>
+        <Route path="/register" element={<RegForm/>}/>
         <Route path="/profile" element={<Profile/>}/>
       </Routes>
     </Router>
