@@ -72,7 +72,7 @@ app.post('/register', async (req, res) => {
 })
 
 app.post('/validatecards', async (req, res) => {
-    //const dbc = require("./database/dbconnection");
+    const dbc = require("./database/dbconnection");
     await dbc.validateCards();
     res.send("validated.")
 })
