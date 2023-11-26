@@ -35,6 +35,7 @@ app.post('/login', async (req, res) =>{
         if(result){
             var key = require("./source/generateKey").generateKey(user._id)
             res.status(200).send(key);
+            res.redirect('/users/${data.username}');
         }
         else{
             res.status(401).send("Invalid credentials.");
