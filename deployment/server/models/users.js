@@ -34,6 +34,10 @@ const userSchema = new Schema({
     holds: {
         type: [String],
         required: true
+    },
+    dupes: {
+        type: [String],
+        required: true
     }
 });
 
