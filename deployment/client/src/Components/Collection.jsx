@@ -1,4 +1,3 @@
-import Filters from "./Filters";
 import Gallery from "./Gallery";
 export default function Collection() {
   return (

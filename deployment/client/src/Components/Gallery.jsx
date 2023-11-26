@@ -1937,7 +1937,7 @@ const cards = [
 export default function Gallery() {
   const [rarityFilter, setRarityFilter] = useState("All");
   const [teamFilter, setTeamFilter] = useState("All");
-
+  const [viewState, setViewState] = useState(false);
   const rfilteredCards =
     rarityFilter === "All"
       ? cards
@@ -1953,6 +1953,10 @@ export default function Gallery() {
   const handleRarityFilter = (rarity) => {
     setRarityFilter(rarity);
   };
+
+  function handleViewState() {
+    setViewState(!viewState);
+  }
   return (
     <>
       <div className=" items-center space-x-2 mx-8">
@@ -2001,18 +2005,20 @@ export default function Gallery() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-3 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 xl:gap-x-5">
             {tfilteredCards.map((card) => (
-              <div key={card.id} className="group relative">
+              <div className="group relative">
                 <div className=" mx-auto w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-90">
                   <img
                     src={card.imageSrc}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    className={`h-full w-full object-cover object-center lg:h-full lg:w-full ${
+                      viewState ? "w-1/2" : ""
+                    }`}
                   />
                 </div>
                 <button
-                  onClick={console.log("hi")}
+                  onClick={handleViewState}
                   className="my-auto mx-auto hidden absolute inset-0 items-center justify-center w-4/5 h-1/6 text-black bg-gray-100 bg-opacity-75 rounded-md shadow-lg group-hover:flex"
                 >
-                  View Details
+                  View
                 </button>
               </div>
             ))}

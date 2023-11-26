@@ -9,11 +9,11 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const navigation = [
-  { name: "Collection", href: "/collection", current: true },
-  { name: "Teams", href: "#", current: false },
-  { name: "Marketplace", href: "#", current: false },
-  { name: "Trade", href: "#", current: false },
-  { name: "Social", href: "#", current: false },
+  { name: "Collection", href: "/collection" },
+  { name: "Teams", href: "/teams" },
+  { name: "Marketplace", href: "#" },
+  { name: "Trade", href: "#" },
+  { name: "Social", href: "#" },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/profile" },
