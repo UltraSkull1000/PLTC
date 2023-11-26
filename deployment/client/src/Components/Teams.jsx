@@ -33,7 +33,7 @@ const teams = [
   },
   {
     name: "Brunley",
-    logo: require("./Img/wolveslogo.png"),
+    logo: require("./Img/brunleylogo.png"),
     summary:
       "Burnley Football Club, based in Lancashire, England, is known for its resilient and hardworking style of play. Nicknamed 'The Clarets,' the team has a rich history and has experienced success both domestically and internationally. Turf Moor serves as their home ground, and Burnley has established itself as a competitive force in the English Premier League, consistently showcasing determination and solid team spirit.",
   },
@@ -51,13 +51,13 @@ const teams = [
   },
   {
     name: "Everton",
-    logo: require("./Img/evertonlogo.jpeg"),
+    logo: require("./Img/evertonlogo.png"),
     summary:
       "Everton Football Club, based in Liverpool, England, is a historic and competitive team in the English Premier League. Known as 'The Toffees,' they boast a rich heritage and a passionate fan base. Everton has a storied history of success, with nine league titles and five FA Cup victories, making them a formidable presence in English football. The team's iconic home, Goodison Park, has witnessed memorable moments and showcases the enduring spirit of Everton.",
   },
   {
     name: "Fulham",
-    logo: require("./Img/fulhamlogo.jpeg"),
+    logo: require("./Img/fulhamlogo.png"),
     summary:
       "Fulham Football Club, based in London, has a rich history in English football. Known as 'The Cottagers,' Fulham has experienced periods of success, including reaching the UEFA Europa League final in 2010. The team has a loyal fanbase and plays its home matches at Craven Cottage, a historic stadium on the banks of the River Thames.",
   },
@@ -69,7 +69,7 @@ const teams = [
   },
   {
     name: "Luton Town",
-    logo: require("./Img/wolveslogo.png"),
+    logo: require("./Img/lutontownlogo.png"),
     summary:
       "Luton Town, a professional football team in the English Premier League, boasts a rich history and competitive spirit. With a dedicated fan base, the team has shown resilience and determination in the top tier of English football. Luton Town's journey is marked by memorable performances, reflecting the club's commitment to excellence on the field.",
   },
@@ -87,25 +87,25 @@ const teams = [
   },
   {
     name: "Newcastle Utd",
-    logo: require("./Img/newcastleutdlogo.jpeg"),
+    logo: require("./Img/newcastleutdlogo.png"),
     summary:
       "Newcastle United, based in Newcastle upon Tyne, is a historic football club in the English Premier League. Known as the Magpies, the team boasts a passionate fanbase and plays its home matches at St James' Park. With a rich history, Newcastle United has experienced both success and challenges, making it a prominent and resilient presence in English football.",
   },
   {
     name: "Nott'm Forest",
-    logo: require("./Img/wolveslogo.png"),
+    logo: require("./Img/forestlogo.png"),
     summary:
       "Nottingham Forest Football Club, commonly known as Nott'm Forest, is a historic English football team based in Nottingham. Founded in 1865, the club has a rich legacy, including two European Cup triumphs in 1979 and 1980 under manager Brian Clough. The team currently competes in the EFL Championship and boasts a passionate fan base, known for their unwavering support throughout the club's storied history.",
   },
   {
     name: "Sheffield Utd",
-    logo: require("./Img/wolveslogo.png"),
+    logo: require("./Img/sheffieldutd.png"),
     summary:
       "Sheffield United, also known as the Blades, is a professional football team based in Sheffield, England. Competing in the Premier League, they have a rich history and are recognized for their distinct red and white striped kits. With Bramall Lane as their home ground, Sheffield United has a dedicated fanbase and has experienced both successes and challenges throughout their football journey.",
   },
   {
     name: "Spurs",
-    logo: require("./Img/wolveslogo.png"),
+    logo: require("./Img/spurslogo.png"),
     summary:
       "Tottenham Hotspur, commonly known as Spurs, is a top-tier Premier League football team based in London. With a rich history, the club has been a consistent contender in English football, boasting a passionate fan base. Known for its attacking style of play and iconic players, Spurs have competed both domestically and in European competitions, leaving a lasting impact on the footballing world.",
   },
