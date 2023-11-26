@@ -26,6 +26,10 @@ const userSchema = new Schema({
     collection: {
         type: [String],
         required: true
+    },
+    friendList: {
+        type: [String],
+        required: true
     }
 });
 
