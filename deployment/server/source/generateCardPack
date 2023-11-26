@@ -1,4 +1,95 @@
+function genStanCard(){
+    var rar = Math.floor(Math.random() * 100 + 1);
 
+    if(rar <= 70)
+        return 1;
+    if(rar <= 90)
+        return 2;
+    if(rar <= 99)
+        return 3;
+    return 4;
+}
+
+function genRareCard(){
+    var rar = Math.floor(Math.random() * 100 + 1);
+    
+    if(rar <= 66)
+        return 2;
+    if(rar <= 97)
+        return 3;
+    return 4;
+}
+
+function genProCard(){
+    var rar = Math.floor(Math.random() * 100 + 1);
+    
+    if(rar <= 90)
+        return 3;
+    return 4;
+}
+
+function genStandardPack() {
+    pack = [];
+    
+    for(var i = 0; i < 5; i++)
+    {
+        pack.push(genStanCard());
+    }
+
+    return pack;
+}
+
+function genPremiumPack() {
+    pack = [];
+
+    pack.push(genRareCard());
+    
+    for(var i = 0; i < 9; i++)
+    {
+        pack.push(genStanCard());
+    }
+
+    return pack;
+}
+
+function genProfessionalPack() {
+    pack = [];
+
+    pack.push(genProCard());
+
+    for(var i = 0; i < 4; i++) {
+        pack.push(genRareCard());
+    }
+    
+    for(var i = 0; i < 15; i++)
+    {
+        pack.push(genStanCard());
+    }
+
+    return pack;
+}
+
+function genBalonPack() {
+    pack = [];
+
+    pack.push(4);
+
+    for(var i = 0; i < 4; i++) {
+        pack.push(genProCard());
+    }
+    
+    for(var i = 0; i < 10; i++)
+    {
+        pack.push(genRareCard());
+    }
+
+    for(var i = 0; i < 35; i++)
+    {
+        pack.push(genStanCard());
+    }
+
+    return pack;
+}
 
 module.exports = {
     getRandomNum : function(max){
@@ -6,15 +97,35 @@ module.exports = {
     },
 
     generateCardPack : function(type){
+        const pack;
         switch(type){
             case 0: // basic
-                const cards = []
-                cards.push(getCard())
+                pack = genStandardPack();
                 break;
-
+            case 1: // rare
+                pack = genPremiumPack();
+                break;
+            case 2: // pro
+                pack = genProfessionalPack();
+                break;
+            case 3: // balon
+                pack = genBalonPack();
+                break;
+            default: // error
+                pack = [];
+                break;
         }
-    },
 
+        const cards = [];
+        for(var i = 0; i < pack.length; i++) {
+            card = getRandCard(pack[i]);
+            //no dupes in a pack
+            while(cards.indexOf(card) != -1)
+                card = getRandCard(pack[i]);
+            cards.push(card);
+        }
+        return cards;
+    },
     getRandomCard : function(){
         
     }
