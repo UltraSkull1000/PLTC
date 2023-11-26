@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', (req, res) => {
     console.log("Client asserted a get request to the base of the API.")
-    res.status(200).send("Welcome to the MaBaDmLo.xyz Premier League API!")
+    res.status(200).render('../client/src/components/AuthForm.jsx');
 })
 
 app.post('/login', async (req, res) =>{
