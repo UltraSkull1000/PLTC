@@ -1,11 +1,16 @@
 const express = require("express")
 const bodyParser = require("body-parser")
+const mongoose = require('mongoose');
 const app = express()
 
 const User = require('./models/users');
 const Listing = require('./models/playerListing');
 const Trade = require('./models/trade');
 const Friend = require('./models/friendRequest');
+
+//db connection
+const dbURL = process.env.ATLAS_URI;
+mongoose.connect(dbURL);
 
 console.log("MaBaDmLo.xyz Premier League API Startup...")
 
