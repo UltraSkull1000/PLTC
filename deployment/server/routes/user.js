@@ -6,7 +6,7 @@ router.get("/:sessionkey", async (req, res) => {
     var user = await User.findOne({ sessionkey: req.params.sessionkey});
     var collection = user.collection;
     res.statusCode(200)
-    res.render('../client/src/components/Collection.jsx', collection);
+    res.render('../client/src/components/Collection.jsx', { collection : collection});
 })
 
 router.get("/:username/cards", async (req, res) => {
