@@ -1,15 +1,48 @@
 import React from "react";
-
+import { useState } from "react";
+import Modal from "./Modal";
 const teams = [
   {
     name: "AFC Bournemouth",
     logo: require("./Img/afcbournemouthlogo.png"),
+    players: [
+      "Adam Smith",
+      "Alex Scott",
+      "Antoine Semenyo",
+      "Chris Mepham",
+      "Dango Ouattara",
+      "Darren Randolph",
+      "David Brooks",
+      "Dominic Solanke",
+      "Emiliano Marcondes",
+      "Illia Zabarnyi",
+      "Ionuț Andrei Radu",
+      "Jaidon Anthony",
+      "Jamal Lowe",
+      "Joe Rothwell",
+      "Justin Kluivert",
+      "Kieffer Moore",
+      "Lewis Cook",
+      "Lloyd Kelly",
+      "Luis Sinisterra",
+      "Marcos Senesi",
+      "Marcus Tavernier",
+      "Max Aarons",
+      "Milos Kerkez",
+      "Neto",
+      "Philip Billing",
+      "Ryan Christie",
+      "Ryan Fredericks",
+      "Traorè",
+      "Tyler Adams",
+    ],
     summary:
       "AFC Bournemouth, based on the south coast of England, is a professional football club with a rich history in the English Football League. Known as the Cherries, the team has experienced notable success in recent years, ascending through the divisions to compete in the Premier League. Recognized for their dynamic style of play and passionate fan base, AFC Bournemouth continues to leave a mark in English football",
   },
   {
     name: "Arsenal",
     logo: require("./Img/arsenallogo.png"),
+    players: [],
     summary:
       "Arsenal, based in North London, is one of the most successful football clubs in England. With a rich history, they have secured numerous league titles and FA Cups. Known for their attacking style of play, the team boasts a passionate fan base and iconic stadium, the Emirates Stadium.",
   },
@@ -123,13 +156,35 @@ const teams = [
   },
 ];
 
-const TeamsPage = () => {
+const Teams = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTeam, setSelectedTeam] = useState({});
+
+  const openModal = (team) => {
+    setSelectedTeam(team);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        teamName={selectedTeam.name}
+        players={selectedTeam.players || []}
+      />
       {teams.map((team) => (
-        <div key={team.name} className="bg-gray-100 p-4 rounded-md shadow-md">
+        <div
+          key={team.name}
+          className="bg-gray-100 p-4 rounded-md shadow-md cursor-pointer"
+          onClick={() => openModal(team)}
+        >
           <img src={team.logo} className="w-full h-32 object-contain mb-4" />
           <h2 className="text-xl font-bold mb-2">{team.name}</h2>
+
           <p className="text-gray-600">{team.summary}</p>
         </div>
       ))}
@@ -137,4 +192,4 @@ const TeamsPage = () => {
   );
 };
 
-export default TeamsPage;
+export default Teams;

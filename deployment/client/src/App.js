@@ -12,6 +12,7 @@ import AuthForm from './Components/AuthForm';
 import RegForm from './Components/RegForm';
 import Teams from './Components/Teams';
 import Marketplace from './Components/Marketplace';
+import Trading from './Components/Trading';
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/teams" element={<Teams />}/>
         <Route path="/marketplace" element={<Marketplace/>}/>
+        <Route path="/trade" element={<Trading/>}/>
       </Routes>
     </Router>
     </div>

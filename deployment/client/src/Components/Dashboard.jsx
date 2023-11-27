@@ -12,7 +12,7 @@ const navigation = [
   { name: "Collection", href: "/collection" },
   { name: "Teams", href: "/teams" },
   { name: "Marketplace", href: "/marketplace" },
-  { name: "Trade", href: "#" },
+  { name: "Trade", href: "/trade" },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/profile" },
