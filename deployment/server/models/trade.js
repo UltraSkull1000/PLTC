@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 const User = require('./users');
-const Player = require('./player');
+const Player = require('./playerListing');
 
 const tradeSchema = new Schema({
     sender: {
