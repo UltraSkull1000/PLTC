@@ -121,7 +121,7 @@ app.post('/validatecards', async (req, res) => {
 })
 
 app.get('/verify/:sessionKey', (req, res) => {
-    res.render("../client/src/components/);
+    res.render("../client/src/components/");
 });
 
 app.put('/verify/:sessionKey', (req, res) => {

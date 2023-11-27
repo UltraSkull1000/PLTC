@@ -97,7 +97,6 @@ module.exports = {
     },
 
     generateCardPack : function(type){
-        const pack;
         switch(type){
             case 0: // basic
                 pack = genStandardPack();
