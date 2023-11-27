@@ -8,7 +8,7 @@ const Marketplace = () => {
     Professional: 3000,
     "Balon D'or": 7000,
   };
-  const colors = {
+  const bgcolors = {
     Standard: "bg-white",
     Premium: "bg-green-200",
     Professional: "bg-orange-200",
@@ -31,7 +31,7 @@ const Marketplace = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {Object.keys(packs).map((pack) => (
           <div
-            className={`p-4 rounded-md border ${colors[pack]} ${
+            className={`p-4 rounded-md border ${bgcolors[pack]} ${
               selectedPack === pack ? "border-purple-500" : "border-gray-300"
             } cursor-pointer`}
             onClick={() => handlePackSelection(pack)}
