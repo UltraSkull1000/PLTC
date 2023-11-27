@@ -59,7 +59,7 @@ router.post("/:sessionKey/pack", (req, res) => {
     {
         res.status(400).json({ error: "User does not have sufficient funds" });
     }
-    res.render("../client/src/components/", cards);
+    res.render("../client/src/components/", { pack : cards });
 });
 
 function freePack(lastLogin){
