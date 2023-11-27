@@ -16,7 +16,7 @@ const userSchema = new Schema({
         required: true
     },
     verified: {
-        type: Boolean,
+        type: String,
         required: true
     },
     money: {
