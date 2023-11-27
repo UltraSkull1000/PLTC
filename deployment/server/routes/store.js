@@ -15,7 +15,7 @@ router.get("/:sessionKey/pack", (req, res) => {
     {
         user.lastLogin = Date.now();
     }
-    res.render("../client/src/Components/MarketPlace.jsx", free);
+    res.render("../client/src/Components/MarketPlace.jsx", { freePack: free });
 });
 
 router.post("/:sessionKey/pack", (req, res) => {
