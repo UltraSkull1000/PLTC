@@ -9,7 +9,13 @@ router.get("/:sessionKey", (req, res) => {
 })
 
 router.get("/:sessionKey/pack", (req, res) => {
-    res.render("../client/src/Components/MarketPlace.jsx");
+    var user = User.findOne({ sessionKey: req.params.sessionKey });
+    var free = freePack(user.lastLogin);
+    if(free)
+    {
+        user.lastLogin = Date.now();
+    }
+    res.render("../client/src/Components/MarketPlace.jsx", free);
 });
 
 router.post("/:sessionKey/pack", (req, res) => {
