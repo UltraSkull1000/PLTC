@@ -27,9 +27,7 @@ function Profile() {
           tristique justo id mi sollicitudin, sit amet eleifend libero interdum.
         </p>
         <h3 className="mt-3 text-xl font-semibold">Collection Progress</h3>
-        <ProgressBar progress="10" />
-        <h3 className="mt-5 text-xl font-semibold">{user.name}'s Collection</h3>
-        <Gallery />
+        <ProgressBar progress="80" />
       </div>
     </div>
   );

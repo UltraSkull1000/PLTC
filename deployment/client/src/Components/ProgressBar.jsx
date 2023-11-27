@@ -1,14 +1,14 @@
 const ProgressBar = ({ progress }) => {
   return (
     <>
-      <div className="relative pt-1">
+      <div className="relative pt-3">
         <div className="flex flex-col space-y-2">
           <div className="flex flex-wrap items-center justify-between">
             <div className="w-full">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs font-semibold inline-block my-1 py-1 px-2 uppercase rounded-full text-purple-800 bg-purple-200">
-                    Team 1
+                    Num. Cards Collected / Total
                   </span>
                 </div>
                 <div className="text-right">

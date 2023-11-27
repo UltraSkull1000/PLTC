@@ -15,7 +15,7 @@ const PackMarketplace = () => {
 
   const handlePurchase = () => {
     console.log(
-      `Purchased ${selectedPack} pack for ${packs[selectedPack]} coins.`
+      "Purchased ${selectedPack} pack for ${packs[selectedPack]} coins."
     );
   };
 
@@ -26,7 +26,7 @@ const PackMarketplace = () => {
         {Object.keys(packs).map((pack) => (
           <div
             className={`bg-white p-4 rounded-md border ${
-              selectedPack === pack ? "border-blue-500" : "border-gray-300"
+              selectedPack === pack ? "border-purple-500" : "border-gray-300"
             } cursor-pointer`}
             onClick={() => handlePackSelection(pack)}
           >
@@ -37,7 +37,7 @@ const PackMarketplace = () => {
       </div>
       <div className="mt-4">
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
           onClick={handlePurchase}
         >
           Purchase {selectedPack} Pack
