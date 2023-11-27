@@ -9,7 +9,7 @@ router.get("/:sessionKey", (req, res) => {
 })
 
 router.get("/:sessionKey/pack", (req, res) => {
-    res.render();
+    res.render("../client/src/Components/MarketPlace.jsx");
 });
 
 router.post("/:sessionKey/pack", (req, res) => {
