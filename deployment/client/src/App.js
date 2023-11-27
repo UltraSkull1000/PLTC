@@ -11,6 +11,7 @@ import Profile from './Components/Profile';
 import AuthForm from './Components/AuthForm';
 import RegForm from './Components/RegForm';
 import TeamsPage from './Components/Teams';
+import Marketplace from './Components/Marketplace';
 function App() {
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/register" element={<RegForm/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/teams" element={<TeamsPage />}/>
+        <Route path="/marketplace" element={<Marketplace/>}/>
       </Routes>
     </Router>
     </div>

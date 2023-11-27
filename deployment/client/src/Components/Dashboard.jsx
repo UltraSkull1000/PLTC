@@ -11,9 +11,8 @@ const user = {
 const navigation = [
   { name: "Collection", href: "/collection" },
   { name: "Teams", href: "/teams" },
-  { name: "Marketplace", href: "#" },
+  { name: "Marketplace", href: "/marketplace" },
   { name: "Trade", href: "#" },
-  { name: "Social", href: "#" },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/profile" },
