@@ -32,7 +32,7 @@ app.post('/login', async (req, res) =>{
     var user = await User.findOne({ username: data.username });
     const result = await bcrypt.compare(data.password, user.passwordHash, (err, result) => 
     {
-        if(result){
+        if(result && user.verified.length == 0){
             var key = require("./source/generateKey").generateKey(user._id)
             res.status(200).send(key);
             user.sessionKey = key;
@@ -62,7 +62,7 @@ app.post('/register', async (req, res) => {
             username: data.username,
             password: saltedPassword,
             email: data.email,
-            verified: false,
+            verified: require("./source/generateKey").generateKey(user._id),
             money: 5000,
             collection: [],
             friendList: [],
@@ -124,8 +124,10 @@ app.get('/verify/:sessionKey', (req, res) => {
     res.render("../client/src/components/);
 });
 
-app.post('/verify/:sessionKey', (req, res) => {
-    
+app.put('/verify/:sessionKey', (req, res) => {
+    var user = User.findOne({ verified: req.params.sessionKey });
+    user.verified = "";
+    res.redirect('/');
 });
 
 const userRouter = require("./routes/user")
