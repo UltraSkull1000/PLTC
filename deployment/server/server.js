@@ -1,7 +1,11 @@
 const express = require("express")
 const bodyParser = require("body-parser")
+
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const app = express()
+
 
 const User = require('./models/users');
 const Listing = require('./models/playerListing');
