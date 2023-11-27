@@ -120,6 +120,14 @@ app.post('/validatecards', async (req, res) => {
     res.send("validated.")
 })
 
+app.get('/verify/:sessionKey', (req, res) => {
+    res.render("../client/src/components/);
+});
+
+app.post('/verify/:sessionKey', (req, res) => {
+    
+});
+
 const userRouter = require("./routes/user")
 app.use("/user", userRouter)
 
