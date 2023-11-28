@@ -73,5 +73,9 @@ module.exports = {
       await cards.updateOne({name : list[i].name}, { $set: {id : i}})
     }
   }
+
+  getCardRar: async function (){
+    
+  }
 }
 
