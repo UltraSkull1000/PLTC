@@ -25,7 +25,7 @@ module.exports = {
     await client.connect();
     var users = client.db("pltcg").collection("users")
     if (!(await users.findOne({ username: username }))){
-      await client.db("pltcg").collection("users").insertOne({username: username, passwordHash: saltedPassword, units: 1000, cards : require("../source/generateCardPack").generateCardPack(0),lastLogin: Date.now() });
+      await client.db("pltcg").collection("users").insertOne({username: username, passwordHash: saltedPassword, units: 1000, cards : [], lastLogin: Date.now() });
       return true;
     }
     else return false;

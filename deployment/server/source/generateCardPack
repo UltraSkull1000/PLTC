@@ -1,31 +1,31 @@
 function genStanCard(){
-    var rar = Math.floor(Math.random() * 100 + 1);
+    var rar = Math.floor(Math.random() * 1000 + 1);
 
-    if(rar <= 70)
+    if(rar <= 700)
+        return 0;
+    if(rar <= 900)
         return 1;
-    if(rar <= 90)
+    if(rar <= 999)
         return 2;
-    if(rar <= 99)
-        return 3;
-    return 4;
+    return 3;
 }
 
 function genRareCard(){
-    var rar = Math.floor(Math.random() * 100 + 1);
+    var rar = Math.floor(Math.random() * 1000 + 1);
     
-    if(rar <= 66)
+    if(rar <= 666)
+        return 1;
+    if(rar <= 990)
         return 2;
-    if(rar <= 97)
-        return 3;
-    return 4;
+    return 3;
 }
 
 function genProCard(){
     var rar = Math.floor(Math.random() * 100 + 1);
     
-    if(rar <= 90)
-        return 3;
-    return 4;
+    if(rar <= 99)
+        return 2;
+    return 3;
 }
 
 function genStandardPack() {
@@ -72,7 +72,7 @@ function genProfessionalPack() {
 function genBalonPack() {
     pack = [];
 
-    pack.push(4);
+    pack.push(3);
 
     for(var i = 0; i < 4; i++) {
         pack.push(genProCard());
@@ -117,15 +117,15 @@ module.exports = {
 
         const cards = [];
         for(var i = 0; i < pack.length; i++) {
-            card = getRandomCard(pack[i]);
+            card = getRandomCard(pack[i], cards);
             //no dupes in a pack
             while(cards.indexOf(card) != -1)
-                card = getRandomCard(pack[i]);
+                card = getRandomCard(pack[i], cards);
             cards.push(card);
         }
         return cards;
     },
-    getRandomCard : function(rarity){
+    getRandomCard : function(rarity, cards){
         
     }
 }
