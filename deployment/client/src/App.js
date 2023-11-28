@@ -12,22 +12,40 @@ import AuthForm from './Components/AuthForm';
 import RegForm from './Components/RegForm';
 import Teams from './Components/Teams';
 import Marketplace from './Components/Marketplace';
-import Trading from './Components/Trading';
+
 function App() {
+
+  /*useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("");
+        const data = await response.json();
+        setUserData(data);
+      } catch (error) {
+        console.error("Error fetching:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!userData) {
+    return <p>Loading...</p>;
+  }*/
+
   return (
     <>
     <Dashboard />
     <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     <Router>
       <Routes>
-        <Route exact path="/" element={<Collection/>}/>
+        <Route exact path="/" element={<Collection />}/>
         <Route path="/collection" element={<Collection />} />
         <Route path="/auth" element={<AuthForm/>}/>
         <Route path="/register" element={<RegForm/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/teams" element={<Teams />}/>
         <Route path="/marketplace" element={<Marketplace/>}/>
-        <Route path="/trade" element={<Trading/>}/>
       </Routes>
     </Router>
     </div>
