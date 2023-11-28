@@ -78,7 +78,7 @@ module.exports = {
     await client.connect();
     var cards = client.db("pltcg").collection("cards");
     await cards.deleteMany({teamabv : "Heroes"})
-    var list = await cards.find({ rarity: rarity });
+    var list = await cards.findMany({ rarity: rarity });
     return list;
   },
 
@@ -96,7 +96,7 @@ module.exports = {
     await client.connect();
     var cards = client.db("pltcg").collection("cards");
     await cards.deleteMany({teamabv : "Heroes"})
-    var list = await cards.find({  });
+    var list = await cards.findMany({  });
     return list;
   }
 }
