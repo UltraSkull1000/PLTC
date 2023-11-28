@@ -178,7 +178,8 @@ module.exports = {
         card = list[i].playerimage;
         if(card.indexOf("Images") == 0) {
             card = "cards" + card.substring(6);
+            console.log(card);
         }
-        return card;
+        return list[i];
     }
 }
