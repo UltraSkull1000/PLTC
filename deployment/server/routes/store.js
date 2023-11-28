@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
     res.send("Base of the Store Router. Please select a valid endpoint.")
 })
 
-router.get("/pack", (req, res) => {
+router.get("/packs", (req, res) => {
     var dbc = require("../database/dbconnection")
     var user = dbc.getUser(req.query.username)
     if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
@@ -22,7 +22,7 @@ router.get("/pack", (req, res) => {
     res.statusCode(200).json({free : free});
 });
 
-router.post("/pack/buy", (req, res) => {
+router.post("/packs/buy", (req, res) => {
     var dbc = require("../database/dbconnection")
     var user = dbc.getUser(req.query.username)
     if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
