@@ -2,7 +2,6 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import { redirect } from "react-router-dom";
 export default function AuthForm() {
-  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleLogin = async (e) => {

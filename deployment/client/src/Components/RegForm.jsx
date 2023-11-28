@@ -2,7 +2,6 @@ import { useState } from "react";
 import { redirect } from "react-router-dom";
 
 export default function RegForm() {
-  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleRegister = async (e) => {
