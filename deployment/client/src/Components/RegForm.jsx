@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 export default function RegForm() {
   const history = useHistory();
@@ -30,7 +30,7 @@ export default function RegForm() {
       });
       if (response.ok) {
         console.log("Register successful");
-        history.push("/auth");
+        return redirect("/auth");
       } else {
         console.error("Register failed");
       }
