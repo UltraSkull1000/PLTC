@@ -5,11 +5,23 @@ export default function AuthForm() {
   const [password, setPassword] = useState("");
   const handleLogin = async (e) => {
     e.preventDefault();
+    var details = {
+      username: username,
+      password: password,
+    };
+
+    var formBody = [];
+    for (var property in details) {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(details[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
     try {
       const response = await fetch("http://localhost:3000/api/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
           "X-API-KEY": "",
         },
         body: JSON.stringify({ username, password }),
