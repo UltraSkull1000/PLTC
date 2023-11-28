@@ -164,10 +164,10 @@ module.exports = {
 
         const cards = [];
         for(var i = 0; i < pack.length; i++) {
-            card = getRandomCard(i, pack);
+            card = getRandomCard(pack[i]);
             //no dupes in a pack
             while(cards.indexOf(card) != -1)
-                card = getRandomCard(i, pack);
+                card = getRandomCard(pack[i]);
             cards.push(card);
         }
         return cards;
