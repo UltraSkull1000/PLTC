@@ -48,7 +48,9 @@ function genPremiumPack() {
     
     for(var i = 0; i < 9; i++)
     {
-        pack.push(genStanCard());
+        var card = genStanCard();
+        var list = dbc.getCard
+        pack.push(card);
     }
 
     return pack;
@@ -93,6 +95,15 @@ function genBalonPack() {
     return pack;
 }
 
+function packRarCount(rarity, pack) {
+    var count = 0;
+    for(var i = 0; i < pack.lenght; i++) {
+        if(pack[i] == rarity)
+            count = count + 1;
+    }
+    return count;
+}
+
 module.exports = {
     getRandomNum : function(max){
         return Math.floor(Math.random * max)
@@ -119,15 +130,15 @@ module.exports = {
 
         const cards = [];
         for(var i = 0; i < pack.length; i++) {
-            card = getRandomCard(pack[i], cards);
+            card = getRandomCard(i, pack);
             //no dupes in a pack
             while(cards.indexOf(card) != -1)
-                card = getRandomCard(pack[i], cards);
+                card = getRandomCard(i, pack);
             cards.push(card);
         }
         return cards;
     },
-    getRandomCard : function(rarity, cards){
+    getRandomCard : function(rarity){
         
     }
 }
