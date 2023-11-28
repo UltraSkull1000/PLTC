@@ -22,7 +22,7 @@ router.get("/pack", (req, res) => {
     res.statusCode(200).send(free);
 });
 
-router.post("/pack/:packType", (req, res) => {
+router.post("/pack/buy", (req, res) => {
     var dbc = require("../database/dbconnection")
     var user = dbc.getUser(req.query.username)
     if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
@@ -30,7 +30,7 @@ router.post("/pack/:packType", (req, res) => {
         return;
     }
     var cost;
-    var packType = req.params.packType;
+    var packType = req.body.packType;
     switch(packType) {
         case 0:
             cost = 700;
