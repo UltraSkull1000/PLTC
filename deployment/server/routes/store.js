@@ -68,7 +68,7 @@ router.post("/pack/buy", (req, res) => {
     {
         res.status(400).send("User does not have sufficient funds");
     }
-    res.status(200).send(cards, freePack(user.lastLogin));
+    res.status(200).send(cards);
 });
 
 function freePack(lastLogin){
