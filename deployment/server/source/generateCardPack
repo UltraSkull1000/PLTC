@@ -1,21 +1,21 @@
 function genStanCard(){
-    var rar = Math.floor(Math.random() * 100 + 1);
+    var rar = Math.floor(Math.random() * 1000 + 1);
 
-    if(rar <= 70)
+    if(rar <= 700)
         return 0;
-    if(rar <= 90)
+    if(rar <= 900)
         return 1;
-    if(rar <= 99)
+    if(rar <= 999)
         return 2;
     return 3;
 }
 
 function genRareCard(){
-    var rar = Math.floor(Math.random() * 100 + 1);
+    var rar = Math.floor(Math.random() * 1000 + 1);
     
-    if(rar <= 66)
+    if(rar <= 666)
         return 1;
-    if(rar <= 97)
+    if(rar <= 990)
         return 2;
     return 3;
 }
@@ -23,7 +23,7 @@ function genRareCard(){
 function genProCard(){
     var rar = Math.floor(Math.random() * 100 + 1);
     
-    if(rar <= 90)
+    if(rar <= 99)
         return 2;
     return 3;
 }
