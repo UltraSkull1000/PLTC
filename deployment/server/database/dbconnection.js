@@ -92,7 +92,7 @@ module.exports = {
   },
 
   //returns the entire card list
-  getAllCard: async function () {
+  getAllCards: async function () {
     await client.connect();
     var cards = client.db("pltcg").collection("cards");
     await cards.deleteMany({teamabv : "Heroes"})
