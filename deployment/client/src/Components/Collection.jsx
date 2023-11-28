@@ -1962,7 +1962,7 @@ export default function Collection() {
   return (
     <>
       <div className="shadow-lg pt-3">
-        <Gallery cards={userCards} />
+        <Gallery cards={cards} />
       </div>
     </>
   );
