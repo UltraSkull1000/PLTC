@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ isOpen, onClose, teamName, players, card }) => {
+const Modal = ({ isOpen, onClose, teamName, playerCards, card }) => {
   return (
     <div
       className={`fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center ${
@@ -11,10 +11,8 @@ const Modal = ({ isOpen, onClose, teamName, players, card }) => {
         <h2 className="text-2xl font-bold mb-4">
           {teamName ? teamName + " Players" : ""}
         </h2>
-        {players?.map((player) => (
-          <p key={player} className="mb-2 inline mr-2">
-            {player}
-          </p>
+        {playerCards?.map((card) => (
+          <img imageSrc={card.imageSrc} alt="Image failed to load"></img>
         ))}
         <img
           src={card?.imageSrc}

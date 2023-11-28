@@ -6,7 +6,7 @@ export default function AuthForm() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://mabadmlo.xyz/login", {
+      const response = await fetch("http://localhost:3000/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

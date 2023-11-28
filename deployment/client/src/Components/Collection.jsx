@@ -1936,6 +1936,7 @@ export default function Collection() {
       team: "Newcastle Utd",
     },
   ];
+
   const [userCards, setUserCards] = useState([]);
 
   useEffect(() => {

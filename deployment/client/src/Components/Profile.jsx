@@ -23,8 +23,11 @@ function Profile() {
       <div className="mt-8 mx-10 text-left">
         <h3 className="text-xl font-semibold">About Me</h3>
         <p className="text-gray-700 mt-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-          tristique justo id mi sollicitudin, sit amet eleifend libero interdum.
+          🌟 About Me: The Legendary Card Whisperer 🌟
+          <br /> Greetings, fellow football fanatics and trading card
+          aficionados! I'm the elusive maestro of the Premier League trading
+          card scene, the Sultan of Swaps, and the maestro of marvelous
+          memorabilia – call me the Card Whisperer.
         </p>
         <h3 className="mt-3 text-xl font-semibold">Collection Progress</h3>
         <ProgressBar progress="80" />

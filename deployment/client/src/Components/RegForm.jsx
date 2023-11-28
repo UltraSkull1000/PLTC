@@ -6,12 +6,25 @@ export default function RegForm() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://mabadmlo.xyz/register", {
+      var details = {
+        username: username,
+        password: password,
+      };
+
+      var formBody = [];
+      for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+      }
+      formBody = formBody.join("&");
+      const response = await fetch("http://localhost:3000/api/register", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         },
-        body: JSON.stringify({ username, password }),
+
+        body: formBody,
       });
       if (response.ok) {
         console.log("Register successful");
