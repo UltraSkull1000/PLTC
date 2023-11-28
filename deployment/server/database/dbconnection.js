@@ -74,8 +74,22 @@ module.exports = {
     }
   }
 
-  getCardRar: async function (){
-    
+  //gets a list of cards of a given rarity
+  getCardRar: async function (rarity){
+    await client.connect();
+    var cards = client.db("pltcg").collection("cards");
+    await cards.deleteMany({teamabv : "Heroes"})
+    var list = await cards.find({ rarity: rarity });
+    return list;
+  }
+
+  //gets a card based on path
+  getCard: async function (path){
+    await client.connect();
+    var cards = client.db("pltcg").collection("cards");
+    await cards.deleteMany({teamabv : "Heroes"})
+    var card = await cards.find({ cardpath: path });
+    return card;
   }
 }
 
