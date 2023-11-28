@@ -117,15 +117,15 @@ module.exports = {
 
         const cards = [];
         for(var i = 0; i < pack.length; i++) {
-            card = getRandCard(pack[i]);
+            card = getRandomCard(pack[i]);
             //no dupes in a pack
             while(cards.indexOf(card) != -1)
-                card = getRandCard(pack[i]);
+                card = getRandomCard(pack[i]);
             cards.push(card);
         }
         return cards;
     },
-    getRandomCard : function(){
+    getRandomCard : function(rarity){
         
     }
 }
