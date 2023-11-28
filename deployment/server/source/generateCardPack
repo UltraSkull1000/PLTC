@@ -2,30 +2,30 @@ function genStanCard(){
     var rar = Math.floor(Math.random() * 100 + 1);
 
     if(rar <= 70)
-        return 1;
+        return 0;
     if(rar <= 90)
-        return 2;
+        return 1;
     if(rar <= 99)
-        return 3;
-    return 4;
+        return 2;
+    return 3;
 }
 
 function genRareCard(){
     var rar = Math.floor(Math.random() * 100 + 1);
     
     if(rar <= 66)
-        return 2;
+        return 1;
     if(rar <= 97)
-        return 3;
-    return 4;
+        return 2;
+    return 3;
 }
 
 function genProCard(){
     var rar = Math.floor(Math.random() * 100 + 1);
     
     if(rar <= 90)
-        return 3;
-    return 4;
+        return 2;
+    return 3;
 }
 
 function genStandardPack() {
@@ -72,7 +72,7 @@ function genProfessionalPack() {
 function genBalonPack() {
     pack = [];
 
-    pack.push(4);
+    pack.push(3);
 
     for(var i = 0; i < 4; i++) {
         pack.push(genProCard());
