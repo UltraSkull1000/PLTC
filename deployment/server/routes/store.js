@@ -19,7 +19,7 @@ router.get("/pack", (req, res) => {
     {
         user.lastLogin = Date.now();
     }
-    res.statusCode(200).send({free : free});
+    res.statusCode(200).json({free : free});
 });
 
 router.post("/pack/buy/:packType", (req, res) => {
@@ -66,9 +66,9 @@ router.post("/pack/buy/:packType", (req, res) => {
     }
     else
     {
-        res.status(400).send("User does not have sufficient funds");
+        res.status(400).json({ error : "User does not have sufficient funds" });
     }
-    res.status(200).send({ cards : cards });
+    res.status(200).json({ cards : cards });
 });
 
 function freePack(lastLogin){
