@@ -177,11 +177,7 @@ const Teams = () => {
         players={selectedTeam.players || []}
       />
       {teams.map((team) => (
-        <div
-          key={team.name}
-          className="bg-gray-100 p-4 rounded-md shadow-md cursor-pointer"
-          onClick={() => openModal(team)}
-        >
+        <div key={team.name} className="bg-gray-100 p-4 rounded-md shadow-md">
           <img src={team.logo} className="w-full h-32 object-contain mb-4" />
           <h2 className="text-xl font-bold mb-2">{team.name}</h2>
 
