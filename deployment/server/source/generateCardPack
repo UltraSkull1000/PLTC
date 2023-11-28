@@ -175,6 +175,10 @@ module.exports = {
     getRandomCard : function(rarity){
         var list = dbc.getCardRar(rarity);
         var i = Math.floor(Math.random() * list.length);
-        return list[i].playerimage;
+        card = list[i].playerimage;
+        if(card.indexOf("Images") == 0) {
+            card = "cards" + card.substring(6);
+        }
+        return card;
     }
 }
