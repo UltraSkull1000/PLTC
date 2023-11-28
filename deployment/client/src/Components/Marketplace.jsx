@@ -1,5 +1,26 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
+import Gallery from "./Gallery";
+
+const [userCards, setUserCards] = useState([]);
+
+useEffect(() => {
+  const fetchUserCards = async () => {
+    try {
+      const response = await fetch("{{baseUrl}}/user/:username/cards /* actually whatever the cards i pulled are*/");
+      if (response.ok) {
+        const userCardsData = await response.json();
+        setUserCards(userCardsData);
+      } else {
+        console.error("Failed to fetch user cards");
+      }
+    } catch (error) {
+      console.error("Error during fetch:", error);
+    }
+  };
+
+  fetchUserCards();
+}, []);
 
 const Marketplace = () => {
   const [selectedPack, setSelectedPack] = useState("Standard");
@@ -66,6 +87,7 @@ const Marketplace = () => {
           className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
           onClick={() => {
             buyPack();
+            <Gallery cards={userCards} />
           }}
         >
           Purchase {selectedPack} Pack
