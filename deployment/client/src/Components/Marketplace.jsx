@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const Marketplace = () => {
   const [selectedPack, setSelectedPack] = useState("Standard");
