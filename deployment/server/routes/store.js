@@ -1,15 +1,19 @@
 const express = require("express")
 const router = express.Router();
-const User = require("../models/users");
 const genPack = require("../source/generateCardPack");
 
-router.get("/:sessionKey", (req, res) => {
+router.get("/", (req, res) => {
     res.statusCode(300)
     res.send("Base of the Store Router. Please select a valid endpoint.")
 })
 
-router.get("/:sessionKey/pack", (req, res) => {
-    var user = User.findOne({ sessionKey: req.params.sessionKey });
+router.get("/pack", (req, res) => {
+    var dbc = require("../database/dbconnection")
+    var user = dbc.getUser(req.query.username)
+    if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
+        res.sendStatus(403);
+        return;
+    }
     var free = freePack(user.lastLogin);
     if(free)
     {
@@ -18,8 +22,13 @@ router.get("/:sessionKey/pack", (req, res) => {
     res.render("../client/src/Components/MarketPlace.jsx", { freePack: free });
 });
 
-router.post("/:sessionKey/pack", (req, res) => {
-    var user = User.findOne({ sessionKey: req.params.sessionKey });
+router.post("/pack", (req, res) => {
+    var dbc = require("../database/dbconnection")
+    var user = dbc.getUser(req.query.username)
+    if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
+        res.sendStatus(403);
+        return;
+    }
     var cost;
     var packType = res.body.packType;
     switch(packType) {
@@ -44,9 +53,9 @@ router.post("/:sessionKey/pack", (req, res) => {
         user.money = user.money - cost;
         var cards = genPack.generateCardPack(packType);
         for(var i = 0; i < cards.length; i++) {
-            if(user.collection.indexOf(cards[i]) == -1)
+            if(user.cards.indexOf(cards[i]) == -1)
             {
-                user.collection.push(cards[i]);
+                user.cards.push(cards[i]);
             }
             else
             {
@@ -59,7 +68,7 @@ router.post("/:sessionKey/pack", (req, res) => {
     {
         res.status(400).json({ error: "User does not have sufficient funds" });
     }
-    res.render("../client/src/components/", { pack : cards });
+    res.render("../client/src/components/", { pack : cards, freePack : freePack(user.lastLogin) });
 });
 
 function freePack(lastLogin){
