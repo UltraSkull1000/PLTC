@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Gallery from "./Gallery";
+import Cookies from "js-cookie";
 export default function Collection() {
   const cards = [
     {
@@ -1940,7 +1941,10 @@ export default function Collection() {
   useEffect(() => {
     const fetchUserCards = async () => {
       try {
-        const response = await fetch("{{baseUrl}}/user/:username/cards");
+        const username = Cookies.get("username");
+        const response = await fetch(
+          `https://mabadmlo.xyz/user/${username}/cards`
+        );
         if (response.ok) {
           const userCardsData = await response.json();
           setUserCards(userCardsData);

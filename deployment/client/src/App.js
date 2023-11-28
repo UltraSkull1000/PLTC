@@ -15,24 +15,6 @@ import Marketplace from './Components/Marketplace';
 
 function App() {
 
-  /*useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("");
-        const data = await response.json();
-        setUserData(data);
-      } catch (error) {
-        console.error("Error fetching:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (!userData) {
-    return <p>Loading...</p>;
-  }*/
-
   return (
     <>
     <Dashboard />

@@ -18,6 +18,7 @@ export default function AuthForm() {
         console.log("Login successful");
         const { apiKey } = await response.json();
         Cookies.set("X-API-KEY", apiKey);
+        Cookies.set("username", username);
       } else {
         console.error("Login failed");
       }
