@@ -14,12 +14,13 @@ router.get("/:username", async (req,res) => {
 router.get("/:username/cards", async (req, res) => {
     var dbc = require("../database/dbconnection")
     var user = await dbc.getUser(req.params.username)
+    var cards = await dbc.getAllCards();
     if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
         res.sendStatus(403);
         return;
     }
     try{
-        var output = { username: user.username, cards: user.cards, dupes: user.dupes }
+        var output = { username: user.username, cards: cards, dupes: user.dupes }
         res.status(200).json(output);
     }
     catch (error) {
