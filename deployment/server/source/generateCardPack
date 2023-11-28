@@ -177,7 +177,7 @@ module.exports = {
         var i = Math.floor(Math.random() * list.length);
         playerimage = list[i].playerimage;
         if(playerimage.indexOf("Images") == 0) {
-            playerimage = "cards" + card.substring(6);
+            playerimage = "./cards" + card.substring(6);
         }
         card = {
             imageSrc: playerimage,
