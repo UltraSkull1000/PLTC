@@ -75,10 +75,10 @@ export default function Gallery({ cards }) {
             className="rounded-md px-2 py-1 bg-purple-900 text-white"
           >
             <option value="All">All Rarities</option>
-            <option value="World Class">World Class</option>
-            <option value="Pro">Pro</option>
-            <option value="Rare">Rare</option>
-            <option value="Common">Common</option>
+            <option value="3">World Class</option>
+            <option value="2">Pro</option>
+            <option value="1">Rare</option>
+            <option value="0">Common</option>
           </select>
         </div>
 

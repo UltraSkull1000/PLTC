@@ -20,12 +20,6 @@ const Marketplace = () => {
     setSelectedPack(pack);
   };
 
-  const handlePurchase = () => {
-    console.log(
-      "Purchased ${selectedPack} pack for ${packs[selectedPack]} coins."
-    );
-  };
-
   const buyPack = async (e) => {
     e.preventDefault();
     try {
@@ -33,7 +27,7 @@ const Marketplace = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-API-KEY": "",
+          "X-API-KEY": Cookies.get("X-API-KEY"),
         },
         body: JSON.stringify({ selectedPack }),
       });
@@ -58,7 +52,7 @@ const Marketplace = () => {
             className={`p-4 rounded-md border ${bgcolors[pack]} ${
               selectedPack === pack ? "border-purple-500" : "border-gray-300"
             } cursor-pointer`}
-            onClick={() =>{
+            onClick={() => {
               handlePackSelection(pack);
             }}
           >
@@ -70,10 +64,10 @@ const Marketplace = () => {
       <div className="mt-4">
         <button
           className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
-          onClick={() =>{
-            handlePurchase();
+          onClick={() => {
             buyPack();
-          }}>
+          }}
+        >
           Purchase {selectedPack} Pack
         </button>
       </div>
