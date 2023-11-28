@@ -13,7 +13,7 @@ const Modal = ({ isOpen, onClose, teamName, players, card }) => {
         </h2>
         {players?.map((player) => (
           <p key={player} className="mb-2 inline mr-2">
-            {player},
+            {player}
           </p>
         ))}
         <img
