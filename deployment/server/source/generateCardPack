@@ -175,11 +175,15 @@ module.exports = {
     getRandomCard : function(rarity){
         var list = dbc.getCardRar(rarity);
         var i = Math.floor(Math.random() * list.length);
-        card = list[i].playerimage;
-        if(card.indexOf("Images") == 0) {
-            card = "cards" + card.substring(6);
-            console.log(card);
+        playerimage = list[i].playerimage;
+        if(playerimage.indexOf("Images") == 0) {
+            playerimage = "cards" + card.substring(6);
         }
-        return list[i];
+        card = {
+            imageSrc: playerimage,
+            rarity: list[i].rarity,
+            team: list[i].team
+        }
+        return card;
     }
 }
