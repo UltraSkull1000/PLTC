@@ -49,7 +49,11 @@ function genPremiumPack() {
     for(var i = 0; i < 9; i++)
     {
         var card = genStanCard();
-        var list = dbc.getCard
+        var list = dbc.getCardRar(card);
+        while(packRarCount(card, pack) < list.length) {
+            card = card - 1;
+            list = dbc.getCardRar(card);
+        }
         pack.push(card);
     }
 
@@ -62,12 +66,24 @@ function genProfessionalPack() {
     pack.push(genProCard());
 
     for(var i = 0; i < 4; i++) {
-        pack.push(genRareCard());
+        var card = genRareCard();
+        var list = dbc.getCardRar(card);
+        while(packRarCount(card, pack) < list.length) {
+            card = card - 1;
+            list = dbc.getCardRar(card);
+        }
+        pack.push(card);
     }
     
     for(var i = 0; i < 15; i++)
     {
-        pack.push(genStanCard());
+        var card = genStanCard();
+        var list = dbc.getCardRar(card);
+        while(packRarCount(card, pack) < list.length) {
+            card = card - 1;
+            list = dbc.getCardRar(card);
+        }
+        pack.push(card);
     }
 
     return pack;
@@ -79,17 +95,35 @@ function genBalonPack() {
     pack.push(3);
 
     for(var i = 0; i < 4; i++) {
-        pack.push(genProCard());
+        var card = genProCard();
+        var list = dbc.getCardRar(card);
+        while(packRarCount(card, pack) < list.length) {
+            card = card - 1;
+            list = dbc.getCardRar(card);
+        }
+        pack.push(card);
     }
     
     for(var i = 0; i < 10; i++)
     {
-        pack.push(genRareCard());
+        var card = genRareCard();
+        var list = dbc.getCardRar(card);
+        while(packRarCount(card, pack) < list.length) {
+            card = card - 1;
+            list = dbc.getCardRar(card);
+        }
+        pack.push(card);
     }
 
     for(var i = 0; i < 35; i++)
     {
-        pack.push(genStanCard());
+        var card = genStanCard();
+        var list = dbc.getCardRar(card);
+        while(packRarCount(card, pack) < list.length) {
+            card = card - 1;
+            list = dbc.getCardRar(card);
+        }
+        pack.push(card);
     }
 
     return pack;
@@ -97,7 +131,7 @@ function genBalonPack() {
 
 function packRarCount(rarity, pack) {
     var count = 0;
-    for(var i = 0; i < pack.lenght; i++) {
+    for(var i = 0; i < pack.length; i++) {
         if(pack[i] == rarity)
             count = count + 1;
     }
@@ -139,6 +173,8 @@ module.exports = {
         return cards;
     },
     getRandomCard : function(rarity){
-        
+        var list = dbc.getCardRar(rarity);
+        var i = Math.floor(Math.random() * list.length);
+        return list[i].cardpath;
     }
 }
