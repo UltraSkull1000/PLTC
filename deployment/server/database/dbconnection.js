@@ -87,7 +87,7 @@ module.exports = {
     await client.connect();
     var cards = client.db("pltcg").collection("cards");
     await cards.deleteMany({teamabv : "Heroes"})
-    var card = await cards.find({ playerimage: image });
+    var card = await cards.findOne({ playerimage: image });
     return card;
   },
 
