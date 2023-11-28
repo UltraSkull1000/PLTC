@@ -19,7 +19,7 @@ router.get("/pack", (req, res) => {
     {
         user.lastLogin = Date.now();
     }
-    res.render("../client/src/Components/MarketPlace.jsx", { freePack: free });
+    res.statusCode(200).send(free);
 });
 
 router.post("/pack/:packType", (req, res) => {
@@ -66,9 +66,9 @@ router.post("/pack/:packType", (req, res) => {
     }
     else
     {
-        res.status(400).json({ error: "User does not have sufficient funds" });
+        res.status(400).send("User does not have sufficient funds");
     }
-    res.render("../client/src/components/", { pack : cards, freePack : freePack(user.lastLogin) });
+    res.status(200).send(cards, freePack(user.lastLogin));
 });
 
 function freePack(lastLogin){
