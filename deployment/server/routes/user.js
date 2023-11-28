@@ -20,7 +20,7 @@ router.get("/:username/cards", async (req, res) => {
         return;
     }
     try{
-        var output = { username: user.username, cards: cards, dupes: user.dupes }
+        var output = { username: user.username, cards: cards }
         res.status(200).json(output);
     }
     catch (error) {
@@ -37,7 +37,7 @@ router.get("/:username/cards/:cardid", async (req, res) => {
         return;
     }
     try{
-        var output = { username: user.username, card: user.cards, dupes: user.dupes }
+        var output = { username: user.username, card: user.cards }
         res.status(200).json(output);
     }
     catch (error) {
