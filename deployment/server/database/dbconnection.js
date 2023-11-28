@@ -82,12 +82,12 @@ module.exports = {
     return list;
   },
 
-  //gets a card based on path
-  getCard: async function (path){
+  //gets a card based on image
+  getCard: async function (image){
     await client.connect();
     var cards = client.db("pltcg").collection("cards");
     await cards.deleteMany({teamabv : "Heroes"})
-    var card = await cards.find({ cardpath: path });
+    var card = await cards.find({ playerimage: image });
     return card;
   }
 }
