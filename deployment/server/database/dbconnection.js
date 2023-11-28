@@ -72,8 +72,7 @@ module.exports = {
       console.log("Updating card " + i + ", Name: ", list[i].name)
       await cards.updateOne({name : list[i].name}, { $set: {id : i}})
     }
-  }
-
+  },
   //gets a list of cards of a given rarity
   getCardRar: async function (rarity){
     await client.connect();
@@ -81,7 +80,7 @@ module.exports = {
     await cards.deleteMany({teamabv : "Heroes"})
     var list = await cards.find({ rarity: rarity });
     return list;
-  }
+  },
 
   //gets a card based on path
   getCard: async function (path){
