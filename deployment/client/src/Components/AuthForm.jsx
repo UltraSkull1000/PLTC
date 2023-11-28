@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
 export default function AuthForm() {
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleLogin = async (e) => {
@@ -31,6 +33,7 @@ export default function AuthForm() {
         const { apiKey } = await response.json();
         Cookies.set("X-API-KEY", apiKey);
         Cookies.set("username", username);
+        history.push("/collection");
       } else {
         console.error("Login failed");
       }

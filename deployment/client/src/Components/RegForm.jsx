@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function RegForm() {
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleRegister = async (e) => {
@@ -28,6 +30,7 @@ export default function RegForm() {
       });
       if (response.ok) {
         console.log("Register successful");
+        history.push("/auth");
       } else {
         console.error("Register failed");
       }
