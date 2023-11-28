@@ -25,6 +25,29 @@ const Marketplace = () => {
     );
   };
 
+  const buyPack = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://mabadmlo.xyz/store/packs/buy", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-KEY": "",
+        },
+        body: JSON.stringify({ selectedPack }),
+      });
+      if (response.ok) {
+        console.log("Pack has been purchased");
+        const { apiKey } = await response.json();
+        Cookies.set("X-API-KEY", apiKey);
+      } else {
+        console.error("Pack has not been purchased, try again");
+      }
+    } catch (error) {
+      console.error("Error while purchasing packs:", error);
+    }
+  };
+
   return (
     <div className="container mx-auto mt-8">
       <h1 className="text-4xl font-bold mb-4">Card Packs Marketplace</h1>
@@ -34,7 +57,9 @@ const Marketplace = () => {
             className={`p-4 rounded-md border ${bgcolors[pack]} ${
               selectedPack === pack ? "border-purple-500" : "border-gray-300"
             } cursor-pointer`}
-            onClick={() => handlePackSelection(pack)}
+            onClick={() =>{
+              handlePackSelection(pack);
+            }}
           >
             <h2 className="text-lg font-semibold mb-2">{pack}</h2>
             <p className="text-gray-600">${packs[pack]}</p>
@@ -44,8 +69,10 @@ const Marketplace = () => {
       <div className="mt-4">
         <button
           className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
-          onClick={handlePurchase}
-        >
+          onClick={() =>{
+            handlePurchase();
+            buyPack();
+          }}>
           Purchase {selectedPack} Pack
         </button>
       </div>
