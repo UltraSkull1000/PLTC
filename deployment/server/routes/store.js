@@ -22,7 +22,7 @@ router.get("/pack", (req, res) => {
     res.render("../client/src/Components/MarketPlace.jsx", { freePack: free });
 });
 
-router.post("/pack", (req, res) => {
+router.post("/pack/:packType", (req, res) => {
     var dbc = require("../database/dbconnection")
     var user = dbc.getUser(req.query.username)
     if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
@@ -30,7 +30,7 @@ router.post("/pack", (req, res) => {
         return;
     }
     var cost;
-    var packType = res.body.packType;
+    var packType = req.params.packType;
     switch(packType) {
         case 0:
             cost = 700;
