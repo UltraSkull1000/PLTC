@@ -22,7 +22,7 @@ router.get("/pack", (req, res) => {
     res.statusCode(200).json({free : free});
 });
 
-router.post("/pack/buy/:packType", (req, res) => {
+router.post("/pack/buy", (req, res) => {
     var dbc = require("../database/dbconnection")
     var user = dbc.getUser(req.query.username)
     if(!dbc.validateKey(user._id, req.headers.X-API-KEY)){
