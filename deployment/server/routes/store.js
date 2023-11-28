@@ -49,8 +49,8 @@ router.post("/pack/buy/:packType", (req, res) => {
             packType = 0;
             break;
     }
-    if(user.money >= cost){
-        user.money = user.money - cost;
+    if(user.units >= cost){
+        user.units = user.units - cost;
         var cards = genPack.generateCardPack(packType);
         for(var i = 0; i < cards.length; i++) {
             if(user.cards.indexOf(cards[i]) == -1)
